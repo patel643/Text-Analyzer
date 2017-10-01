@@ -4,11 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-<<<<<<< HEAD
     "dev": "nodemon ./bin/www"
-=======
-      "dev": "nodemon ./bin/www"
->>>>>>> 6b6b383762e91078a2a842eb61a601c0732b3a26
   },
   "dependencies": {
     "body-parser": "~1.17.1",
