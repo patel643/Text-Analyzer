@@ -2,7 +2,12 @@
 
 <h3>Number of Sentences : {{nos}}</h3>
 
-
+Number of words in sentences
+<ol>
+{{#each wordarr}}
+  <li>{{ this }}</li>
+{{/each}}
+</ol>
 
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script type="text/javascript">
@@ -10,7 +15,7 @@
 window.onload = function () {
 	var chart = new CanvasJS.Chart("chartContainer", {
 		title:{
-			text: "My First Chart in CanvasJS"              
+			text: {{{nos}}}           
 		},
 		data: [              
 		{
