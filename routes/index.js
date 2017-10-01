@@ -6,7 +6,11 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Textalyze' });
 });
 router.post('/aurl', function(req, res, next) {
-  
-  res.render('aurl',{title: 'Analyzed'});
+  var text = req.body.textdata;
+	console.log(text);
+    var nos = text.split('.');
+    console.log(nos.length-1);
+  res.render('aurl',{title: 'Analyzed' , nos:nos.length-1});
 });
+
 module.exports = router;
