@@ -25,8 +25,29 @@ router.post('/aurl', function(req, res, next) {
 		
 		console.log("word "+(i+1)+": "+wordarr[i]);
 	}
-	
-  res.render('aurl',{title: 'Analyzed' , nos:nos.length-1, wordarr:wordarr});
+
+
+
+	var concordance = {};
+	var tokens = text.split(" ");
+	for (var i = 0; i < tokens.length; i++){
+		var word = tokens[i];
+		// find new word
+		if (concordance[word] == undefined){
+			concordance[word] = 1;
+			// seen this word before
+		} else {
+			concordance[word] ++;
+		}
+
+		console.log("word " + ": " + concordance[word]);
+
+	}
+
+
+
+
+  res.render('aurl',{title: 'Analyzed' , nos:nos.length-1, wordarr:wordarr, concordance: concordance});
 });
 
 module.exports = router;
