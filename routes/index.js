@@ -9,7 +9,7 @@ router.post('/aurl', function(req, res, next) {
   var text = req.body.textdata;
 	console.log(text);
 	
-    var nos = text.split(/[.,?]/); //number of sentences
+    var nos = text.split(/[.?]/); //number of sentences
     console.log(nos.length-1);
 	
 	var wordarr=[];
@@ -23,13 +23,17 @@ router.post('/aurl', function(req, res, next) {
 		temp=nos[i].split(" ");
 		wordarr[i]=temp.length-1;
 		
-		console.log("word "+i+": "+wordarr[i]);
+		console.log("word "+(i+1)+": "+wordarr[i]);
 	}
 
 
 
 	var concordance = {};
+<<<<<<< HEAD
 	var tokens = text.split(/[." "]/;
+=======
+	var tokens = text.split(/[." "]/);
+>>>>>>> f498c649c428afde63c10a25741f649d11ce98b0
 	for (var i = 0; i < tokens.length; i++){
 		var word = tokens[i];
 		// find new word
@@ -40,7 +44,11 @@ router.post('/aurl', function(req, res, next) {
 			concordance[word] ++;
 		}
 
+<<<<<<< HEAD
 		console.log(word  + ": " + concordance[word]);
+=======
+		console.log(word + ": " + concordance[word]);
+>>>>>>> f498c649c428afde63c10a25741f649d11ce98b0
 
 	}
 

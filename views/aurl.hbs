@@ -5,20 +5,28 @@
 Number of words in sentences
 <ol>
 {{#each wordarr}}
-  <li>{{ this }}</li>
+  <li>{{this}}</li>
 {{/each}}
 </ol>
 
+<<<<<<< HEAD
 
 <h3>Concordance of Words : </h3>
 
 <ol>
 {{#each word}}
   <li>alert("word: " + {{this}} + " concordance: " );</li>
+=======
+Frequency of words in sentences
+<ol>
+{{#each word}}
+  <li>Word:{{this}} </li>
+>>>>>>> f498c649c428afde63c10a25741f649d11ce98b0
 {{/each}}
 </ol>
 
 
+<<<<<<< HEAD
 
 
 <h3>Concordance of Words : </h3>
@@ -29,7 +37,10 @@ Number of words in sentences
 
 
 
+=======
+>>>>>>> f498c649c428afde63c10a25741f649d11ce98b0
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script src="../routes/index.js"></script>
 <script type="text/javascript">
 
 window.onload = function () {
@@ -37,21 +48,38 @@ window.onload = function () {
 		title:{
 			text: "Distribution of Words per Sentence"           
 		},
-		data: [              
-		{
-			// Change type to "doughnut", "line", "splineArea", etc.
-			type: "column",
-			dataPoints: [
-				{ label: "apple",  y: 10  },
-				{ label: "orange", y: 15  },
-				{ label: "banana", y: 25  },
-				{ label: "mango",  y: 30  },
-				{ label: "grape",  y: 28  }
-			]
-		}
-		]
+		axisY:{
+        interval: 1
+      },
+	  axisX:{
+       interval: 1
+     },
+		data: data, 
+		
 	});
 	chart.render();
 }
+
+var limit = {{{nos}}};    //increase number of dataPoints by increasing this
+   
+    var y = 0;
+    var data = []; var dataSeries = { type: "column" };
+    var dataPoints = [];
+    for (var i = 0; i < limit; i += 1) {
+        y = {{wordarr.[1]}};
+         dataPoints.push({
+          x: i + 1 ,
+          y: y                
+           });
+        }
+     dataSeries.dataPoints = dataPoints;
+     data.push(dataSeries);     
+
+
+
+
+
 </script>
 <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+
+
