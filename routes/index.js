@@ -28,6 +28,7 @@ router.post('/aurl', function(req, res, next) {
 
 
 
+
 	var concordance=new Array(0);
 	var words= new Array(0);
 	var length=0;
@@ -56,6 +57,20 @@ router.post('/aurl', function(req, res, next) {
 		
 			}
 		
+
+	var concordance = {};
+
+	var tokens = text.split(/[." "]/);
+	for (var i = 0; i < tokens.length; i++){
+		var word = tokens[i];
+		// find new word
+		if (concordance[word] == undefined){
+			concordance[word] = 1;
+		// seen this word before
+		} else {
+			concordance[word] ++;
+		}
+
 
 
 	}
