@@ -28,26 +28,43 @@ router.post('/aurl', function(req, res, next) {
 
 
 
-	var concordance = {};
-	var tokens = text.split(/[." "]/);
+	var concordance=new Array(0);
+	var words= new Array(0);
+	var length=0;
+	var tokens = text.split(/[." "?]/).filter(Boolean);
+	console.log(tokens.length)
 	for (var i = 0; i < tokens.length; i++){
-		var word = tokens[i];
-		// find new word
-		if (concordance[word] == undefined){
-			concordance[word] = 1;
-			// seen this word before
-		} else {
-			concordance[word] ++;
-		}
+		console.log(tokens[i])
+			var found=0;
+			var j=0;
+			for(;j < words.length+1; j++){
+				if(tokens[i]==words[j]){
+					//console.log("equal part");
+					found=1;
+					concordance[j]++;
+					break;
+				}
+				else if(found == 0 & j==length){
+					//console.log("not equal part");
+					words[length]=tokens[i];
+					//console.log(words[length]);
+					concordance[length]=1;
+					length++;
+					break;
+				}
+		
+		
+			}
+		
 
-		console.log(word + ": " + concordance[word]);
 
 	}
 
+for (var i = 0; i < length; i++)
+		console.log(words[i] + ": " + concordance[i]);
 
 
-
-  res.render('aurl',{title: 'Analyzed' , nos:nos.length-1, wordarr:wordarr, word: word, concordance: concordance});
+  res.render('aurl',{title: 'Analyzed' , nos:nos.length-1, wordarr:wordarr, words: words, concordance: concordance, length: length});
 });
 
 module.exports = router;

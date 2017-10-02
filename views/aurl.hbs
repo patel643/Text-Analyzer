@@ -10,11 +10,13 @@ Number of words in sentences
 </ol>
 
 Frequency of words in sentences
+<p>
 <ol>
-{{#each word}}
-  <li>Word:{{this}} </li>
+{{#each words}}
+  <li>{{this}}	 </li>
 {{/each}}
 </ol>
+</p>
 
 
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
@@ -44,7 +46,7 @@ var limit = {{{nos}}};    //increase number of dataPoints by increasing this
     var data = []; var dataSeries = { type: "column" };
     var dataPoints = [];
     for (var i = 0; i < limit; i += 1) {
-        y = {{wordarr.[1]}};
+        y = {{wordarr.[i]}};
          dataPoints.push({
           x: i + 1 ,
           y: y                
