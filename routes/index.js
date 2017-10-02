@@ -9,7 +9,7 @@ router.post('/aurl', function(req, res, next) {
   var text = req.body.textdata;
 	console.log(text);
 	
-    var nos = text.split(/[.,?]/); //number of sentences
+    var nos = text.split(/[.?]/); //number of sentences
     console.log(nos.length-1);
 	
 	var wordarr=[];
@@ -23,7 +23,7 @@ router.post('/aurl', function(req, res, next) {
 		temp=nos[i].split(" ");
 		wordarr[i]=temp.length-1;
 		
-		console.log("word "+i+": "+wordarr[i]);
+		console.log("word "+(i+1)+": "+wordarr[i]);
 	}
 	
   res.render('aurl',{title: 'Analyzed' , nos:nos.length-1, wordarr:wordarr});
