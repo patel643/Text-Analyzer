@@ -14,7 +14,8 @@ router.post('/aurl', function(req, res, next) {
 	
 	var wordarr=[];
 	var temp=nos[0].split(" ");
-	wordarr[0]=temp.length;
+	if(temp!="")
+		wordarr[0]=temp.length;
 	console.log("word 1:"+wordarr[0]);
 	
 	for(var i=1; i<nos.length-1; i++){
