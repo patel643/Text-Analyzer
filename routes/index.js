@@ -5,6 +5,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Textalyze' });
 });
+
 router.post('/aurl', function(req, res, next) {
   var text = req.body.textdata;
 	console.log(text);
@@ -58,19 +59,7 @@ router.post('/aurl', function(req, res, next) {
 			}
 		
 
-	var concordance = {};
-
-	var tokens = text.split(/[." "]/);
-	for (var i = 0; i < tokens.length; i++){
-		var word = tokens[i];
-		// find new word
-		if (concordance[word] == undefined){
-			concordance[word] = 1;
-		// seen this word before
-		} else {
-			concordance[word] ++;
-		}
-
+	
 
 
 	}
