@@ -2,6 +2,20 @@
 
 <h3>Number of Sentences : {{nos}}</h3>
 
+Number of words in sentences
+<ol>
+{{#each wordarr}}
+  <li>{{this}}</li>
+{{/each}}
+</ol>
+
+Frequency of words in sentences
+<ol>
+{{#each word}}
+  <li>Word:{{this}} </li>
+{{/each}}
+</ol>
+
 
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script src="../routes/index.js"></script>
@@ -46,9 +60,4 @@ var limit = {{{nos}}};    //increase number of dataPoints by increasing this
 </script>
 <div id="chartContainer" style="height: 300px; width: 100%;"></div>
 
-Number of words in sentences
-<ol>
-{{#each wordarr}}
-  <li>{{this}}</li>
-{{/each}}
-</ol>
+
