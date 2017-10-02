@@ -9,6 +9,26 @@ Number of words in sentences
 {{/each}}
 </ol>
 
+
+<h3>Concordance of Words : </h3>
+
+<ol>
+{{#each word}}
+  <li>alert("word: " + {{this}} + " concordance: " );</li>
+{{/each}}
+</ol>
+
+
+
+
+<h3>Concordance of Words : </h3>
+<!-- for (word in concordance) {
+    alert("word: " + word + " concordance: " + concordance[word]);
+}
+//-->
+
+
+
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script type="text/javascript">
 
