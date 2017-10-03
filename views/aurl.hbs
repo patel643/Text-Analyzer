@@ -15,7 +15,7 @@ Frequency of words in sentences
 <ol>
 
 {{#each words}}
-  <li>Word:{{this}} </li>
+  <li>{{this}} </li>
 {{/each}}
 </ol>
 </p>
@@ -72,7 +72,7 @@ window.onload = function () {
     for (var i = 0; i < {{{nos}}}; i += 1) {
 	
 	{{log wordarr}}
-		var y= wordarr[i];
+		var y= {{wordarr.[1]}};
          dataPoints.push({
           x: i + 1 ,
           y: y                

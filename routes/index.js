@@ -68,7 +68,7 @@ for (var i = 0; i < length; i++)
 		console.log(words[i] + ": " + concordance[i]);
 
 
-  res.render('aurl',{title: 'Analyzed' , nos:nos.length-1, wordarr:wordarr, words: words, concordance: concordance, length: length});
+  res.render('aurl',{title: 'Some Interesting Details About Your Data' , nos:nos.length-1, wordarr:wordarr, words: words, concordance: concordance, length: length});
 });
 
 /*Handlebars.registerHelper('lookup', function(obj, field) {
