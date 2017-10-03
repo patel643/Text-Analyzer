@@ -21,26 +21,7 @@ Frequency of words in sentences
 </p>
 
 
-<thead>
-    <tr>
-            <th>Word</th>
-			<th>frequency</th>
-    </tr>
-</thead>
-<tbody>
-    {{#each words}}
-        <tr>
-            
-                <td>{{this}}</td>
-				
-            
-        </tr>{{/each}}
-		<tr>
-            {{#each concordance}}
-                <td>{{this}}</td>
-            {{/each}}
-        </tr>
-</tbody>
+
 
 
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
@@ -49,30 +30,6 @@ Frequency of words in sentences
 
 window.onload = function () {
 
-	var array;
-   console.log({{wordarr}});
-   array={{wordarr}};
-   var testa = "{{wordarr}}"
-   console.log(testa);
-   array = testa;
-   console.log(array);
-   {{log array}}
-    var data = []; var dataSeries = { type: "column" };
-    var dataPoints = [];
-	var index=0;
-
-    for (var i = 0; i < {{{nos}}}; i += 1) {
-		console.log(i);
-		console.log(array[i]);
-		var y= array[i];
-         dataPoints.push({
-          x: i + 1 ,
-          y: y                
-           });
-		   index++;
-        }
-     dataSeries.dataPoints = dataPoints;
-     data.push(dataSeries);   
 	
 	
 	
@@ -91,14 +48,36 @@ window.onload = function () {
 	});
 	chart.render();
 }
+var array = "{{wordarr}}"
+	var testd=new Array(0);
+	var length=0;
+   for(var i=0;i<array.length;i++){
+   console.log(array[i]);
+   while(array[i]!=","){
+		testd[length]=parseInt(testd[length]) + parseInt(array[i]);
+		
+		}
+		i++;
+		length++;
+		
+   }
    
-   
-   
+   console.log(array);
+    var data = []; var dataSeries = { type: "column" };
+    var dataPoints = [];
+	var index=0;
 
-
-
-
-
+    for (var i = 0; i < length; i += 1) {
+		var y= Number(testd[i]);
+         dataPoints.push({
+          x: i + 1 ,
+          y: y 	  
+           });	
+		   index++;
+        }
+     dataSeries.dataPoints = dataPoints;
+     data.push(dataSeries);   
+	
 </script>
 <div id="chartContainer" style="height: 300px; width: 100%;"></div>
 

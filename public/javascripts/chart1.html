@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<script type="text/javascript"></script>
+<script >
+window.onload = function () {
+
+   array=[1,2];
+   
+	
+	
+	var chart = new CanvasJS.Chart("chartContainer", {
+		title:{
+			text: "Distribution of Words per Sentence"           
+		},
+		axisY:{
+        interval: 1
+      },
+	  axisX:{
+       interval: 1
+     },
+		data: data, 
+		
+	});
+	chart.render();
+}
+ var data = []; var dataSeries = { type: "column" };
+    var dataPoints = [];
+	var index=0;
+
+    for (var i = 0; i < 3; i += 1) {
+		console.log(i);
+		console.log(array[i]);
+		var y= array[i];
+         dataPoints.push({
+          x: i + 1 ,
+          y: y                
+           });
+		   index++;
+        }
+     dataSeries.dataPoints = dataPoints;
+     data.push(dataSeries);   
+	
+	</script>
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+
+</html>

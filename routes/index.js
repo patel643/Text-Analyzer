@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
+var app = express();
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Textalyze' });
@@ -64,7 +65,6 @@ router.post('/aurl', function(req, res, next) {
 
 for (var i = 0; i < length; i++)
 		console.log(words[i] + ": " + concordance[i]);
-
 
   res.render('aurl',{title: 'Some Interesting Details About Your Data' , nos:nos.length-1, wordarr:wordarr, words: words, concordance: concordance, length: length});
 });
