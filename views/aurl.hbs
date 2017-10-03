@@ -14,15 +14,37 @@ Frequency of words in sentences
 <p>
 <ol>
 
-{{#each word}}
+{{#each words}}
   <li>Word:{{this}} </li>
 {{/each}}
 </ol>
 </p>
 
 
+<thead>
+    <tr>
+            <th>Word</th>
+			<th>frequency</th>
+    </tr>
+</thead>
+<tbody>
+    {{#each words}}
+        <tr>
+            
+                <td>{{this}}</td>
+				
+            
+        </tr>{{/each}}
+		<tr>
+            {{#each concordance}}
+                <td>{{this}}</td>
+            {{/each}}
+        </tr>
+</tbody>
+
+
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-<script src="../routes/index.js"></script>
+<script src="\routes/index.js"></script>
 <script type="text/javascript">
 
 window.onload = function () {
@@ -41,18 +63,21 @@ window.onload = function () {
 	});
 	chart.render();
 }
-
-var limit = {{{nos}}};    //increase number of dataPoints by increasing this
    
-    var y = 0;
+   
+   
     var data = []; var dataSeries = { type: "column" };
     var dataPoints = [];
-    for (var i = 0; i < limit; i += 1) {
-        y = {{wordarr.[i]}};
+	var index=0;
+    for (var i = 0; i < {{{nos}}}; i += 1) {
+	
+	{{log wordarr}}
+		var y= wordarr[i];
          dataPoints.push({
           x: i + 1 ,
           y: y                
            });
+		   index++;
         }
      dataSeries.dataPoints = dataPoints;
      data.push(dataSeries);     

@@ -71,4 +71,8 @@ for (var i = 0; i < length; i++)
   res.render('aurl',{title: 'Analyzed' , nos:nos.length-1, wordarr:wordarr, words: words, concordance: concordance, length: length});
 });
 
+/*Handlebars.registerHelper('lookup', function(obj, field) {
+  return obj[field];
+});*/
+
 module.exports = router;
