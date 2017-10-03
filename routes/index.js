@@ -7,13 +7,13 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/aurl', function(req, res, next) {
-  var text = req.body.textdata;
+	var text = req.body.textdata;
 	console.log(text);
 	
     var nos = text.split(/[.?]/); //number of sentences
     console.log(nos.length-1);
 	
-	var wordarr=[];
+	var wordarr=[]; //no. of words per sentence
 	var temp=nos[0].split(" ");
 	if(temp!="")
 		wordarr[0]=temp.length;
@@ -28,9 +28,7 @@ router.post('/aurl', function(req, res, next) {
 	}
 
 
-
-
-	var concordance=new Array(0);
+	var concordance=new Array(0); //frequency of words
 	var words= new Array(0);
 	var length=0;
 	var tokens = text.split(/[." "?]/).filter(Boolean);
@@ -71,8 +69,6 @@ for (var i = 0; i < length; i++)
   res.render('aurl',{title: 'Some Interesting Details About Your Data' , nos:nos.length-1, wordarr:wordarr, words: words, concordance: concordance, length: length});
 });
 
-Handlebars.registerHelper('lookup', function(obj, field) {
-  return obj[field];
-});
+
 
 module.exports = router;
