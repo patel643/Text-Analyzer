@@ -7,16 +7,16 @@ CSCI 5117, Fall 2017
 Please fill out all of the following sections to help us grade your submission:
 
 
-## Name of App: x
+## Name of App: Textalyzer
 
 
-## Name of Team: x
+## Name of Team: Wonder Women
 
 
 ## Students
 
-* First Last, x500@umn.edu
-* ...
+* Nidhi Patel, patel643@umn.edu
+* Yinqiao Zheng, zheng928@umn.edu
 
 
 ## Link to Site
