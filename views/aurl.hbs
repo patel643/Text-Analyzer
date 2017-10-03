@@ -65,14 +65,14 @@ window.onload = function () {
 }
    
    
-   
+   var array={{wordarr}};
     var data = []; var dataSeries = { type: "column" };
     var dataPoints = [];
 	var index=0;
     for (var i = 0; i < {{{nos}}}; i += 1) {
+	{{log}} array
 	
-	{{log wordarr}}
-		var y= {{wordarr.[1]}};
+		var y= array[i];
          dataPoints.push({
           x: i + 1 ,
           y: y                
