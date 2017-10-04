@@ -1,24 +1,21 @@
 var express = require('express');
 var router = express.Router();
-var wordarr=[];
+
 var app = express();
 var fetch = require('node-fetch');
+var wordarr=[];
+var nos=[];
+var listwd=new Array(0);
+var concordance=new Array(0); //frequency of words
+var words= new Array(0);
+var length=0;
+var listed=new Array(0);
+	
 
-
-const mySpecialWindowFunction = () => {
-
-  /* START HACK */
-  if (!process.env.BROWSER) {
-    global.window = {}; // Temporarily define window for server-side
-  }
-  /* END HACK */
-
-  return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
-};
 router.post('/test', function(req, res, next) {
 	var text = req.body.textdata;
 	
-    var nos = text.split(/[.?]/); //number of sentences
+    nos = text.split(/[.?]/); //number of sentences
 	
 	 //no. of words per sentence
 	var temp=nos[0].split(" ");
@@ -30,7 +27,7 @@ router.post('/test', function(req, res, next) {
 		wordarr[i]=temp.length-1;	
 	}
 	
-	var listwd=new Array(0);
+	
 			for (var i = 0; i < nos.length-1; i++){
 					 listwd[i] =  nos[i] + ': ' + wordarr[i];
 					
@@ -39,9 +36,7 @@ router.post('/test', function(req, res, next) {
 	
 	
 	
-	var concordance=new Array(0); //frequency of words
-	var words= new Array(0);
-	var length=0;
+	
 	var tokens = text.split(/[." "?]/).filter(Boolean);
 	for (var i = 0; i < tokens.length; i++){
 			var found=0;
@@ -66,7 +61,6 @@ router.post('/test', function(req, res, next) {
 			}
 			
 	}
-var listed=new Array(0);
 	for (var i = 0; i < length; i++){
 			
 			 listed[i] =  words[i] + ': ' + concordance[i];
@@ -90,6 +84,20 @@ var listed=new Array(0);
  
 });
 
+router.post('/plot', function(req,res){
+	var data={
+		data1: nos,
+		data2: listwd,
+		data3: wordarr,
+		data4: words,
+		data5: concordance,
+		data6: length,
+		data7: listed
+	}
+	res.json(data);
+	data=[];
+	
+})
 
 
 

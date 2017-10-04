@@ -4,51 +4,123 @@
  
  //var datad = Window.localStorage.getItem('person');
  //console.log(datad);
- 
+var nos=0;
+var listwd= new Array(0);
+var wordarr= new Array(0);
+var words= new Array(0);
+var concordance= new Array(0);
+var length=0;
+var listed= new Array(0);
 
- 
-window.onload = function () {
-	
-	var array = 3;
-	var testd=new Array(0);
-	var length=4;
-	for(var i=0;i<array.length;i++){
-	   console.log(array[i]);
-	   if(array[i] != ","){
-			testd[length]=array[i];
-			length++;
-			
-	   }
+$.ajax({
+	type:"POST",
+	async: false,
+	url: 'http://localhost:3000/ajax/plot',
+	success: function(d1){
+		nos=d1.data1;
+		listwd= d1.data2;
+		wordarr= d1.data3;
+		words= d1.data4;
+		concordance= d1.data5;
+		length=d1.data6;
+		listed= d1.data7;
 	}
-	console.log(array);
+	
+});
+
+window.onload = function () {
+	//chart 1 data
     var data = []; var dataSeries = { type: "column" };
     var dataPoints = [];
-	var index=0;
 
-    for (var i = 0; i < length; i += 1) {
-		var y= 2; //Number(testd[i]);
+    for (var i = 0; i < nos.length; i += 1) {
+		var y= wordarr[i]; 
          dataPoints.push({
           x: i + 1 ,
           y: y 	  
            });	
-		   index++;
         }
      dataSeries.dataPoints = dataPoints;
      data.push(dataSeries);  
+	 
+	
 	
 	var chart = new CanvasJS.Chart("chartContainer", {
 		title:{
 			text: "Distribution of Words per Sentence"           
 		},
 		axisY:{
-        interval: 1
+        interval: 5,
+		title: "Number of Words"
       },
 	  axisX:{
-       interval: 1
+       interval: 1,
+	   title: "Sentence"
      },
 		data: data, 
 		
 	});
 	chart.render();
+	
+	 //chart 2 data
+	 var data = []; var dataSeries = { type: "line" };
+		var dataPoints = [];
+
+		for (var i = 0; i < length; i += 1) {
+			var y= concordance[i]; 
+			var x= words[i];
+			 dataPoints.push({
+			  label: x ,
+			  y: y 	  
+			   });	
+			}
+		 dataSeries.dataPoints = dataPoints;
+		 data.push(dataSeries); 
+		 var chart1 = new CanvasJS.Chart("chartContainers", {
+		title:{
+			text: "Frequency of Words"           
+		},
+		axisX: {
+			title:"Words",
+				labelAngle: -30
+			},
+			axisY:{
+        interval: 5,
+		title: "Frequency"
+      },
+		data: data, 
+		
+	});
+	chart1.render();
 }
  
+
+ /*
+ window.onload = function (){
+  //chart 2 data
+	 var data1 = []; var dataSeries1 = { type: "line" };
+		var dataPoints1 = [];
+
+		for (var i = 0; i < length; i += 1) {
+			var y= words[i]; 
+			var x= concordance[i];
+			console.log(words[i]+": "+concordance[i]);
+			 dataPoints1.push({
+			  label: x ,
+			  y: y 	  
+			   });	
+			}
+		 dataSeries1.dataPoints1 = dataPoints1;
+		 data1.push(dataSeries1); 
+		 var chart1 = new CanvasJS.Chart("chartContainers", {
+		title:{
+			text: "Frequency of Words"           
+		},
+		axisX: {
+				labelAngle: -30
+			},
+		data1: data1, 
+		
+	});
+	chart1.render();
+ }*/
