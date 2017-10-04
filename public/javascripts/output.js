@@ -15,7 +15,7 @@ var listed= new Array(0);
 $.ajax({
 	type:"POST",
 	async: false,
-	url: 'http://localhost:3000/ajax/plot',
+	url: '/ajax/plot',
 	success: function(d1){
 		nos=d1.data1;
 		listwd= d1.data2;
