@@ -14,71 +14,16 @@ Frequency of words in sentences
 <p>
 <ol>
 
-{{#each words}}
+{{#each listed}}
   <li>{{this}} </li>
 {{/each}}
 </ol>
 </p>
-
-
-
-
-
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="/javascripts/output.js"></script>
 
-<script type="text/javascript">
 
-window.onload = function () {
-
-	
-	
-	
-	var chart = new CanvasJS.Chart("chartContainer", {
-		title:{
-			text: "Distribution of Words per Sentence"           
-		},
-		axisY:{
-        interval: 1
-      },
-	  axisX:{
-       interval: 1
-     },
-		data: data, 
-		
-	});
-	chart.render();
-}
-var array = "{{wordarr}}"
-	var testd=new Array(0);
-	var length=0;
-   for(var i=0;i<array.length;i++){
-   console.log(array[i]);
-   while(array[i]!=","){
-		testd[length]=parseInt(testd[length]) + parseInt(array[i]);
-		
-		}
-		i++;
-		length++;
-		
-   }
-   
-   console.log(array);
-    var data = []; var dataSeries = { type: "column" };
-    var dataPoints = [];
-	var index=0;
-
-    for (var i = 0; i < length; i += 1) {
-		var y= Number(testd[i]);
-         dataPoints.push({
-          x: i + 1 ,
-          y: y 	  
-           });	
-		   index++;
-        }
-     dataSeries.dataPoints = dataPoints;
-     data.push(dataSeries);   
-	
-</script>
 <div id="chartContainer" style="height: 300px; width: 100%;"></div>
 
 
