@@ -29,7 +29,8 @@ Please fill out all of the following sections to help us grade your submission:
 **Describe the most challenging features you implemented
 (one sentence per bullet, maximum 4 bullets):**
 
-* ...
+* Pass variables from sever side of javasript to the client side of javasript
+* Some format issues
 
 
 ## Screenshots of Site
