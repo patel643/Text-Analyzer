@@ -46,7 +46,7 @@ along with a very brief caption:**
 **Document integrations with 3rd Party code or services here.
 Please do not document required libraries (e.g., Express, Bulma).**
 
-* Express: Biuld a minimal Node.js web application using application Express framework.
+* Express: Biuld a minimal Node.js web application using Express framework.
 * Bulma: Add style to the front page.
 * CanvasJS: Use CanvasJS to draw graphs of number of words in each sentence and frequency of words.
 
