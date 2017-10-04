@@ -38,8 +38,10 @@ Please fill out all of the following sections to help us grade your submission:
 **[Add a screenshot of each key page (maximum 4)](https://stackoverflow.com/questions/10189356/how-to-add-screenshot-to-readmes-in-github-repository)
 along with a very brief caption:**
 
-![](https://media.giphy.com/media/gJIJjrdhO5OYo/giphy.gif)
-
+![](https://umn-5117-f17.github.io/module-1-group-assignment-wonder-women/public/images/1.png)
+![](https://umn-5117-f17.github.io/module-1-group-assignment-wonder-women/public/images/2.png)
+![](https://umn-5117-f17.github.io/module-1-group-assignment-wonder-women/public/images/3.png)
+![](https://umn-5117-f17.github.io/module-1-group-assignment-wonder-women/public/images/4.png)
 
 ## External Dependencies
 

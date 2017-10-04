@@ -95,32 +95,4 @@ window.onload = function () {
 }
  
 
- /*
- window.onload = function (){
-  //chart 2 data
-	 var data1 = []; var dataSeries1 = { type: "line" };
-		var dataPoints1 = [];
-
-		for (var i = 0; i < length; i += 1) {
-			var y= words[i]; 
-			var x= concordance[i];
-			console.log(words[i]+": "+concordance[i]);
-			 dataPoints1.push({
-			  label: x ,
-			  y: y 	  
-			   });	
-			}
-		 dataSeries1.dataPoints1 = dataPoints1;
-		 data1.push(dataSeries1); 
-		 var chart1 = new CanvasJS.Chart("chartContainers", {
-		title:{
-			text: "Frequency of Words"           
-		},
-		axisX: {
-				labelAngle: -30
-			},
-		data1: data1, 
-		
-	});
-	chart1.render();
- }*/
+ 
