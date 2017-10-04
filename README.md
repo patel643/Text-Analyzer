@@ -69,3 +69,6 @@ provide a few gzipped apache logs here.
 
 * Copying and pasting any text into our page would be fine. 
 
+* <https://www.rottentomatoes.com/m/the_cabin_in_the_woods/reviews/?type=user>
+* <https://www.rottentomatoes.com/m/notebook/reviews/>
+
