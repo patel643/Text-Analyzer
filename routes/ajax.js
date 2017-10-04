@@ -2,36 +2,48 @@ var express = require('express');
 var router = express.Router();
 var wordarr=[];
 var app = express();
+var fetch = require('node-fetch');
 
+
+const mySpecialWindowFunction = () => {
+
+  /* START HACK */
+  if (!process.env.BROWSER) {
+    global.window = {}; // Temporarily define window for server-side
+  }
+  /* END HACK */
+
+  return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
+};
 router.post('/test', function(req, res, next) {
 	var text = req.body.textdata;
-	console.log(text);
 	
     var nos = text.split(/[.?]/); //number of sentences
-    console.log(nos.length-1);
 	
 	 //no. of words per sentence
 	var temp=nos[0].split(" ");
 	if(temp!="")
 		wordarr[0]=temp.length;
-	console.log("word 1:"+wordarr[0]);
 	
 	for(var i=1; i<nos.length-1; i++){
-		console.log(nos[i]);
 		temp=nos[i].split(" ");
-		wordarr[i]=temp.length-1;
-		
-		console.log("word "+(i+1)+": "+wordarr[i]);
+		wordarr[i]=temp.length-1;	
 	}
+	
+	var listwd=new Array(0);
+			for (var i = 0; i < nos.length-1; i++){
+					 listwd[i] =  nos[i] + ': ' + wordarr[i];
+					
+			}
 
-
+	
+	
+	
 	var concordance=new Array(0); //frequency of words
 	var words= new Array(0);
 	var length=0;
 	var tokens = text.split(/[." "?]/).filter(Boolean);
-	console.log(tokens.length)
 	for (var i = 0; i < tokens.length; i++){
-		console.log(tokens[i])
 			var found=0;
 			var j=0;
 			for(;j < words.length+1; j++){
@@ -52,11 +64,7 @@ router.post('/test', function(req, res, next) {
 		
 		
 			}
-		
-
-	
-
-
+			
 	}
 var listed=new Array(0);
 	for (var i = 0; i < length; i++){
@@ -64,20 +72,25 @@ var listed=new Array(0);
 			 listed[i] =  words[i] + ': ' + concordance[i];
 			
 	}
-		 console.log(listed);
+		 
 	
 	
-	var response={
-		nos:nos.length-1, wordarr:wordarr, words: words, concordance: concordance, length: length
+	var responsedata={
+		nos:nos.length-1, listwd: listwd, wordarr:wordarr, words: words, concordance: concordance, length: length, listed: listed
 		
 	}
+	/*app.get('/:all',sendAll);
+	function sendAll(request,response){
+		response.send(responsedata);
+	}*/
+	
 	
   
-	res.render('aurl',{title: 'Some Interesting Details About Your Data' , nos:nos.length-1, wordarr:wordarr, words: words, concordance: concordance, length: length, listed: listed});
+	res.render('aurl',{title: 'Some Interesting Details About Your Data' , nos:nos.length-1,listwd: listwd, wordarr:wordarr, words: words, concordance: concordance, length: length, listed: listed});
  
 });
-app.get('/', function(req, res){
-  res.send(__dirname+'/ajax/myvar');
- });
+
+
+
 
 module.exports = router;

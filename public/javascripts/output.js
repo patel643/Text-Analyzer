@@ -1,4 +1,12 @@
+ /*$.get('/:all', function(rsp) {
+      console.log(rsp);
+ });*/
+ 
+ //var datad = Window.localStorage.getItem('person');
+ //console.log(datad);
+ 
 
+ 
 window.onload = function () {
 	
 	var array = 3;
