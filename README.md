@@ -29,7 +29,8 @@ Please fill out all of the following sections to help us grade your submission:
 **Describe the most challenging features you implemented
 (one sentence per bullet, maximum 4 bullets):**
 
-* ...
+* Pass variables from sever side of javasript to the client side of javasript.
+* Some format issues.
 
 
 ## Screenshots of Site
@@ -45,14 +46,16 @@ along with a very brief caption:**
 **Document integrations with 3rd Party code or services here.
 Please do not document required libraries (e.g., Express, Bulma).**
 
-* Library or service name: description of use
-* ...
+* Express: Biuld a minimal Node.js web application using Express framework.
+* Bulma: Add style to the front page.
+* CanvasJS: Use CanvasJS to draw graphs of number of words in each sentence and frequency of words.
+
 
 **If there's anything else you would like to disclose about how your project
 relied on external code, expertise, or anything else, please disclose that
 here:**
 
-...
+NA
 
 
 ## Links to Test Data
@@ -62,5 +65,5 @@ that would be necessary (or helpful) for us to test your application, please
 link to them here.  For example, if your project parses gzipped apache logs, 
 provide a few gzipped apache logs here.
 
-* link to file
-* ...
+* Copying and pasting any text into our page would be fine. 
+
