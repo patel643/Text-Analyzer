@@ -1,4 +1,4 @@
-# Module 1 Group Assignment: The Describerator
+# Text Analyzer
 
 CSCI 5117, Fall 2017
 
